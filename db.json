@@ -1,0 +1,29 @@
+{
+  "profissionais": [
+    {
+      "id": 1,
+      "nome": "João Silva",
+      "area": "Cabeleireiro",
+      "descricao": "Especialista em cortes masculinos e modernos. Formado no Senac e com 5 anos de experiência."
+    },
+    {
+      "id": 2,
+      "nome": "Ana Souza",
+      "area": "Designer de Sobrancelhas",
+      "descricao": "Profissional com certificação em design e henna, apaixonada por valorizar o olhar de cada cliente."
+    },
+    {
+      "id": 3,
+      "nome": "Carla Mendes",
+      "area": "Esteticista",
+      "descricao": "Trabalha com limpeza de pele e tratamentos faciais. Atuação focada em cuidados e autoestima."
+    },
+    {
+      "id": 4,
+      "nome": "Izabela Rocha",
+      "area": "Manicure e Nail Designer",
+      "descricao": "Profissional criativa e detalhista, especialista em alongamentos e nail art personalizadas."
+    }
+  ]
+}
+
