@@ -1,29 +1,110 @@
 {
+  "salao": {
+    "nome": "Beleza & Estilo",
+    "endereco": "Rua das Rosas, 123 - Bairro Lindeia / Belo Horizonte",
+    "telefone": "(31) 3487-7487",
+    "horarioFuncionamento": "Segunda a Sábado, 8h às 18h",
+    "banner": "imagens/banner.jpg"
+  },
+  "servicos": [
+    "Cabeleireiro",
+    "Barbeiro",
+    "Design de Sobrancelha",
+    "Maquiadora",
+    "Nail Design",
+    "Manicure"
+  ],
   "profissionais": [
     {
-      "id": 1,
-      "nome": "João Silva",
+      "nome": "João Ferraz",
       "area": "Cabeleireiro",
-      "descricao": "Especialista em cortes masculinos e modernos. Formado no Senac e com 5 anos de experiência."
+      "descricao": "Especialista em cortes e tratamentos capilares masculinos e femininos. Experiência em técnicas de coloração.",
+      "foto": "imagens/avatar1.jpg",
+      "preco": 250
     },
     {
-      "id": 2,
-      "nome": "Ana Souza",
-      "area": "Designer de Sobrancelhas",
-      "descricao": "Profissional com certificação em design e henna, apaixonada por valorizar o olhar de cada cliente."
+      "nome": "Davidson Marçal",
+      "area": "Barbeiro",
+      "descricao": "Profissional especializado em barbas e cortes masculinos. Trabalha com acabamento detalhado e estilo personalizado.",
+      "foto": "imagens/avatar14.jpg",
+      "preco": 60
     },
     {
-      "id": 3,
-      "nome": "Carla Mendes",
-      "area": "Esteticista",
-      "descricao": "Trabalha com limpeza de pele e tratamentos faciais. Atuação focada em cuidados e autoestima."
+      "nome": "Ana Gomes",
+      "area": "Design de Sobrancelha",
+      "descricao": "Designer certificada em sobrancelhas e henna, focada em realçar o seu olhar.",
+      "foto": "imagens/avatar4.jpg",
+      "preco": 45
     },
     {
-      "id": 4,
-      "nome": "Izabela Rocha",
-      "area": "Manicure e Nail Designer",
-      "descricao": "Profissional criativa e detalhista, especialista em alongamentos e nail art personalizadas."
+      "nome": "Gisele Rodrigues",
+      "area": "Maquiadora",
+      "descricao": "Formada em maquiagem profissional, atua com makes sociais e artísticas. Paixão por realçar a beleza natural.",
+      "foto": "imagens/avatar10.png",
+      "preco": 160
+    },
+    {
+      "nome": "Bruna Magalhaes",
+      "area": "Nail Design",
+      "descricao": "Profissional criativa especializada em alongamentos e nail arts detalhadas. Experiência com técnicas em gel e fibra.",
+      "foto": "imagens/avatar8.jpg",
+      "preco": 145
+    },
+    {
+      "nome": "Miguel Angelo",
+      "area": "Cabeleireiro",
+      "descricao": "Especialista em cortes clássicos e modernos. Experiência com coloração e tratamento de cabelos danificados.",
+      "foto": "imagens/avatar11.jpg",
+      "preco": 120
+    },
+    {
+      "nome": "Gustavo Tuzani",
+      "area": "Barbeiro",
+      "descricao": "Barbeiro com atenção aos detalhes, especialista em fades, desenhos e cuidados com a barba.",
+      "foto": "imagens/avatar2.jpg",
+      "preco": 75
+    },
+    {
+      "nome": "Agatha Moreira",
+      "area": "Design de Sobrancelha",
+      "descricao": "Profissional cuidadosa e detalhista, especialista em micropigmentação.",
+      "foto": "imagens/avatar9.jpg",
+      "preco": 300
+    },
+    {
+      "nome": "Edson Fernandes",
+      "area": "Cabeleireiro",
+      "descricao": "Especialista em cabelos cacheados e crespos, dominando técnicas de corte, hidratação e finalização que valorizam a textura natural dos fios.",
+      "foto": "imagens/avatar13.jpg",
+      "preco": 180
+    },
+    {
+      "nome": "Izabella Moraes",
+      "area": "Manicure",
+      "descricao": "Especialista em manicure tradicional, realizando cutilagem, lixamento e esmaltação com capricho.",
+      "foto": "imagens/avatar7.jpg",
+      "preco": 55
+    },
+    {
+      "nome": "Daiane Santos",
+      "area": "Maquiadora",
+      "descricao": "Maquiadora experiente com foco em makes sociais e de eventos. Busca sempre valorizar o estilo pessoal de cada cliente.",
+      "foto": "imagens/avatar6.jpg",
+      "preco": 220
+    },
+    {
+      "nome": "Mônica Melo",
+      "area": "Nail Design",
+      "descricao": "Nail designer especialista em técnicas de alongamento e nail art delicada. Experiência com atendimento personalizado.",
+      "foto": "imagens/avatar15.jpg",
+      "preco": 160
     }
+  ],
+  "horariosDisponiveis": [
+    "Seg 09:00",
+    "Seg 14:00",
+    "Ter 10:00",
+    "Qua 13:00",
+    "Qui 15:00"
   ]
 }
-
