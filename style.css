@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Lora', serif;;
 }
 
 html, body {
@@ -12,6 +12,7 @@ html, body {
   flex-direction: column; /* empilha header, main e footer */
   background-color: #000000;
   color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -171,23 +172,25 @@ html, body {
 /* ====== TÍTULO ====== */
 .card-profissional h3 {
   margin: 0;
-  color: #ffffff;
-  font-size: 18px;
+  color: #f1d03c;
+  font-size: 20px;
   margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
 }
 
 /* ====== ÁREA DE ATUAÇÃO ====== */
 .card-profissional p strong {
   color: #ffffff;
-  font-size: 15px;
+  font-family: 'Cormorant Garamond', serif;;
 }
 
 /* ====== DESCRIÇÃO ====== */
 .card-profissional p {
-  font-size: 13.5px;
+  font-size: 16.5px;
   color: #ffffff;
   margin-top: 8px;
   line-height: 1.4;
+  font-family:  'Playfair Display', serif;;
 }
 
 .card-profissional img.foto-profissional {
@@ -197,6 +200,21 @@ html, body {
   object-fit: cover;
   margin-bottom: 10px;
 }
+
+.card-profissional .preco {
+  font-family: 'Cormorant Garamond', serif;    /* preço elegante */
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 1.2em;
+}
+
+.card-profissional .preco strong {
+  font-weight: 600;            /* mais forte que o texto */
+  color: #e0bc1a;              /* rosa suave, elegante */
+  font-size: 2.0em;            /* levemente maior que o texto */
+}
+
+
 
 /* ============================
    AJUSTES DO MENU LATERAL
