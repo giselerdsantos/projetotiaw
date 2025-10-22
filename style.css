@@ -9,14 +9,12 @@ html, body {
   height: 100%;
   margin: 0;
   display: flex;
-  flex-direction: column; /* empilha header, main e footer */
+  flex-direction: column; 
   background-color: #000000;
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
 }
 
-
-/* ======= TOPO ======= */
 .topo {
   display: flex;
   align-items: center;
@@ -26,30 +24,59 @@ html, body {
   color: white;
 }
 
-.topo h1 {
-  font-size: 1.9rem;
+
+.topo-direita {
+  display: flex;
+  align-items: center;
+  gap: 25px; 
+}
+
+
+.pesquisa {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .pesquisa input {
-  padding: 6px 10px;
-  border-radius: 8px;
+  padding: 8px 35px 8px 35px; 
+  border-radius: 20px;
   border: none;
   outline: none;
+  font-size: 0.95rem;
+  background-color: #fff;
+  color: #000;
+  width: 220px;
 }
 
-.pesquisa button {
-  background-color: white;
-  border: none;
-  margin-left: 5px;
-  border-radius: 8px;
+
+.pesquisa::before {
+  content: "\f002"; 
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 12px; 
+  color: #555;
+  font-size: 1rem;
+}
+
+
+.icone-usuario {
+  font-size: 1.6rem;
   cursor: pointer;
+  color: white;
+  transition: color 0.2s;
 }
 
-/* ======= CONTAINER PRINCIPAL ======= */
-/* ======= CONTAINER PRINCIPAL ======= */
+.icone-usuario:hover {
+  color: #f1d03c;
+}
+
+
+
 .container {
   display: flex;
-  min-height: calc(100vh - 80px); /* ocupa toda altura da tela menos header */
+  min-height: calc(100vh - 80px); 
 }
 
 
@@ -70,13 +97,13 @@ html, body {
   transform: scale(1.1);
 }
 
-/* Estado ativo */
+
 .menu-servicos.ativo {
   transform: translateX(0);
 }
 
 
-/* ======= MENU LATERAL ======= */
+
 .menu-servicos {
   width: 230px;
   background-color: #080808;
@@ -85,44 +112,41 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  position: fixed; /* deixa o menu fixo */
-  top: 80px; /* abaixo do header */
+  position: fixed; 
+  top: 80px; 
   left: 0;
   bottom: 0;
   transition: transform 0.3s ease;
-  transform: translateX(0); /* visível por padrão */
+  transform: translateX(0); 
   z-index: 1000;
 }
 
-/* Quando o menu estiver fechado */
+
 .menu-servicos.fechado {
   transform: translateX(-100%);
 }
 
-/* ======= CONTEÚDO ======= */
+
 .conteudo {
   flex: 1;
   padding: 30px;
-  margin-left: 250px; /* mesmo valor que a largura do menu */
+  margin-left: 250px; 
   display: flex;
   flex-direction: column;
 }
 
-/* Quando o menu for fechado, o conteúdo ocupa toda a largura */
+
 .menu-fechado .conteudo {
   margin-left: 0;
 }
 
 
-
-/* ======= CONTEÚDO ======= */
 .conteudo {
   flex: 1;
   padding: 0px;
   
 }
 
-/* ====== ÁREA DOS PROFISSIONAIS ====== */
 .profissionais {
   display: flex;
   flex-wrap: wrap;
@@ -153,7 +177,6 @@ html, body {
 }
 
 
-/* ====== CARD INDIVIDUAL ====== */
 .card-profissional {
   background-color: #661111;
   border-radius: 12px;
@@ -169,7 +192,6 @@ html, body {
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* ====== TÍTULO ====== */
 .card-profissional h3 {
   margin: 0;
   color: #f1d03c;
@@ -178,13 +200,11 @@ html, body {
   font-family: 'Playfair Display', serif;
 }
 
-/* ====== ÁREA DE ATUAÇÃO ====== */
 .card-profissional p strong {
   color: #ffffff;
   font-family: 'Cormorant Garamond', serif;;
 }
 
-/* ====== DESCRIÇÃO ====== */
 .card-profissional p {
   font-size: 16.5px;
   color: #ffffff;
@@ -202,45 +222,37 @@ html, body {
 }
 
 .card-profissional .preco {
-  font-family: 'Cormorant Garamond', serif;    /* preço elegante */
+  font-family: 'Cormorant Garamond', serif;   
   font-weight: 600;
   color: #ffffff;
   font-size: 1.2em;
 }
 
 .card-profissional .preco strong {
-  font-weight: 600;            /* mais forte que o texto */
-  color: #e0bc1a;              /* rosa suave, elegante */
-  font-size: 2.0em;            /* levemente maior que o texto */
+  font-weight: 600;          
+  color: #e0bc1a;             
+  font-size: 2.0em;            
 }
 
-
-
-/* ============================
-   AJUSTES DO MENU LATERAL
-============================ */
 
 .menu-servicos h3 {
   margin: 15px ; 
 }
-/* === LINKS DO MENU === */
+
 .menu-servicos a {
-  display: block;          /* cada link em uma linha */
-  color: white;            /* cor do texto */
-  text-decoration: none;   /* tira o sublinhado azul */
-  padding: 10px 15px;      /* espaçamento interno */
-  border-radius: 5px;      /* cantos arredondados */
-  margin-bottom: 5px;      /* espaço entre os links */
+  display: block;          
+  color: white;            
+  text-decoration: none;   
+  padding: 10px 15px;      
+  border-radius: 5px;      
+  margin-bottom: 5px;      
   transition: background-color 0.3s;
 }
 
 .menu-servicos a:hover {
-  background-color: #660a0a;  /* destaque ao passar o mouse */
+  background-color: #660a0a;  
 }
 
-/* ============================
-   AJUSTE DO CONTEÚDO PRINCIPAL
-============================ */
 
 .conteudo {
   flex: 1;
@@ -262,7 +274,7 @@ h2 {
 }
 
 .horarios-card .horario {
-  background-color: #fffae0; /* laranja claro, mais visível */
+  background-color: #fffae0; 
   color: #000;
   border: none;
   border-radius: 6px;
@@ -306,10 +318,51 @@ h2 {
   background-color: #0c9c18;
 }
 
-.mapa {
-  text-align: center;
-  margin-bottom: 60px;
+.info-salao {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin: 40px 0;
+  flex-wrap: wrap;
 }
+
+.mapa {
+  flex: 1;
+  min-width: 300px;
+}
+
+.redes-sociais {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.redes-sociais p {
+  font-size: 1.1rem;
+  
+}
+
+.icones-redes {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 10px;
+}
+
+.icones-redes a {
+  color: #f1d03c;
+  font-size: 1.8rem;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.icones-redes a:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
 
 footer {
   background-color: #000000;
@@ -319,7 +372,21 @@ footer {
   border-top: 2px solid #661111;
   font-size: 0.9rem;
   width: 100%;
-  margin-top: auto; /* mantém ele fixo no final */
 }
+
+
+footer .logo-footer {
+  width: 150px;         
+  height: auto;
+  opacity: 1.0;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+footer .logo-footer:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+
 
 

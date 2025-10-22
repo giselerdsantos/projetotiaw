@@ -1,6 +1,7 @@
-// ========= Dados (com preços adicionados) =========
+
+//  Dados (com preços 
 const horariosDisponiveis = [
-  "Seg 09:00", "Seg 14:00", "Ter 10:00", "Qua 13:00", "Qui 15:00"
+  "Seg 09:00", "Seg 14:00", "Ter 10:00", "Qua 13:00", "Qui 15:00", "Sex 11:00"
 ];
 
 const profissionais = [
@@ -18,7 +19,7 @@ const profissionais = [
   { nome: 'Mônica Melo', area: 'Nail Design', descricao: 'Nail designer especialista em técnicas de alongamento e nail art delicada. Experiência com atendimento personalizado.', foto: 'imagens/avatar15.jpg', preco: 160 }
 ];
 
-// ========= Elementos =========
+// Elementos 
 const listaProfissionais = document.getElementById('lista-profissionais');
 const btnAgendar = document.getElementById('btn-agendar');
 const listaServicos = document.getElementById('lista-servicos');
@@ -31,7 +32,7 @@ const mainContainer = document.querySelector('main');
 
 let horarioSelecionado = null;
 
-// ========= Função principal: renderizar cards =========
+
 function mostrarProfissionais(filtro = '') {
   if (!listaProfissionais) return;
   listaProfissionais.innerHTML = '';
@@ -68,7 +69,7 @@ function mostrarProfissionais(filtro = '') {
 
     const horariosDiv = card.querySelector('.horarios-card');
 
-    // cria botões de horários e mantém comportamento de seleção única
+    //  botões de horários com seleção única
     horariosDisponiveis.forEach(h => {
       const b = document.createElement('button');
       b.type = 'button';
@@ -86,10 +87,10 @@ function mostrarProfissionais(filtro = '') {
   });
 }
 
-// ========= Inicializa lista =========
+// Inicio lista 
 mostrarProfissionais();
 
-// ========= Filtros =========
+//  Filtros 
 if (listaServicos) {
   listaServicos.addEventListener('click', (e) => {
     if (e.target && e.target.tagName === 'LI') {
@@ -107,23 +108,27 @@ if (filtroArea) {
   });
 }
 
-if (btnPesquisar && campoPesquisa) {
-  btnPesquisar.addEventListener('click', () => {
-    const termo = (campoPesquisa.value || '').toLowerCase().trim();
+//  Campo Pesquisa 
+const campoPesquisaEl = document.querySelector('.pesquisa input');
+
+if (campoPesquisaEl) {
+  campoPesquisaEl.addEventListener('input', () => {
+    const termo = campoPesquisaEl.value.toLowerCase().trim();
     mostrarProfissionais(termo);
     if (filtroArea) filtroArea.value = '';
   });
 
-  campoPesquisa.addEventListener('keypress', (e) => {
+  campoPesquisaEl.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-      const termo = (campoPesquisa.value || '').toLowerCase().trim();
+      const termo = campoPesquisaEl.value.toLowerCase().trim();
       mostrarProfissionais(termo);
       if (filtroArea) filtroArea.value = '';
     }
   });
 }
 
-// ========= Botão Agendar =========
+
+//  Botão Agendar 
 if (btnAgendar) {
   btnAgendar.addEventListener('click', () => {
     if (!horarioSelecionado) {
@@ -134,7 +139,7 @@ if (btnAgendar) {
   });
 }
 
-// ========= Menu sanduíche =========
+// Menu sanduíche 
 if (btnMenu && menuServicos && mainContainer) {
   btnMenu.addEventListener('click', () => {
     menuServicos.classList.toggle('fechado');
