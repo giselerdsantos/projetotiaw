@@ -1,16 +1,14 @@
 //  Dados puxados do JSON
-// Variáveis globais
 let profissionais = [];
 let horariosDisponiveis = [];
 
-// Carregar tudo do JSON de uma vez
 fetch('detalhessalao.json')
   .then(response => {
     if (!response.ok) throw new Error('Erro ao carregar o JSON');
     return response.json();
   })
   .then(dados => {
-    // Salão
+    
     const salao = dados.salao;
     document.getElementById('nome-salao').textContent = salao.nome;
     document.getElementById('descricao-salao').textContent = salao.descricao;
