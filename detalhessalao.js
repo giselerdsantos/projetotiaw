@@ -1,23 +1,51 @@
+//  Dados puxados do JSON
+// Variáveis globais
+let profissionais = [];
+let horariosDisponiveis = [];
 
-//  Dados (com preços 
-const horariosDisponiveis = [
-  "Seg 09:00", "Seg 14:00", "Ter 10:00", "Qua 13:00", "Qui 15:00", "Sex 11:00"
-];
+// Carregar tudo do JSON de uma vez
+fetch('detalhessalao.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Erro ao carregar o JSON');
+    return response.json();
+  })
+  .then(dados => {
+    // Salão
+    const salao = dados.salao;
+    document.getElementById('nome-salao').textContent = salao.nome;
+    document.getElementById('descricao-salao').textContent = salao.descricao;
+    document.getElementById('endereco-salao').innerHTML = `<strong>Endereço:</strong> ${salao.endereco}`;
+    document.getElementById('telefone-salao').innerHTML = `<strong>Contato:</strong> ${salao.telefone}`;
+    document.getElementById('horario-salao').innerHTML = `<strong>Horário de Funcionamento:</strong> ${salao.horarioFuncionamento}`;
 
-const profissionais = [
-  { nome: 'João Ferraz', area: 'Cabeleireiro', descricao: 'Especialista em cortes e tratamentos capilares masculinos e femininos. Experiência em técnicas de coloração.', foto: 'imagens/avatar1.jpg', preco: 250 },
-  { nome: 'Davidson Marçal', area: 'Barbeiro', descricao: 'Profissional especializado em barbas e cortes masculinos. Trabalha com acabamento detalhado e estilo personalizado.', foto: 'imagens/avatar14.jpg', preco: 60 },
-  { nome: 'Ana Gomes', area: 'Design de Sobrancelha', descricao: 'Designer certificada em sobrancelhas e henna, focada em realçar o seu olhar.', foto: 'imagens/avatar4.jpg', preco: 45 },
-  { nome: 'Gisele Rodrigues', area: 'Maquiadora', descricao: 'Formada em maquiagem profissional, atua com makes sociais e artísticas. Paixão por realçar a beleza natural.', foto: 'imagens/avatar10.png', preco: 160 },
-  { nome: 'Bruna Magalhaes', area: 'Nail Design', descricao: 'Profissional criativa especializada em alongamentos e nail arts detalhadas. Experiência com técnicas em gel e fibra.', foto: 'imagens/avatar8.jpg', preco: 145 },
-  { nome: 'Miguel Angelo', area: 'Cabeleireiro', descricao: 'Especialista em cortes clássicos e modernos. Experiência com coloração e tratamento de cabelos danificados.', foto: 'imagens/avatar11.jpg', preco: 120 },
-  { nome: 'Gustavo Tuzani', area: 'Barbeiro', descricao: 'Barbeiro com atenção aos detalhes, especialista em fades, desenhos e cuidados com a barba.', foto: 'imagens/avatar2.jpg', preco: 75 },
-  { nome: 'Agatha Moreira', area: 'Design de Sobrancelha', descricao: 'Profissional cuidadosa e detalhista, especialista em micropigmentação.', foto: 'imagens/avatar9.jpg', preco: 300 },
-  { nome: 'Edson Fernandes', area: 'Cabeleireiro', descricao: 'Especialista em cabelos cacheados e crespos, dominando técnicas de corte, hidratação e finalização que valorizam a textura natural dos fios.', foto: 'imagens/avatar13.jpg', preco: 180 },
-  { nome: 'Izabella Moraes', area: 'Manicure', descricao: 'Especialista em manicure tradicional, realizando cutilagem, lixamento e esmaltação com capricho.', foto: 'imagens/avatar7.jpg', preco: 55 },
-  { nome: 'Daiane Santos', area: 'Maquiadora', descricao: 'Maquiadora experiente com foco em makes sociais e de eventos. Busca sempre valorizar o estilo pessoal de cada cliente.', foto: 'imagens/avatar6.jpg', preco: 220 },
-  { nome: 'Mônica Melo', area: 'Nail Design', descricao: 'Nail designer especialista em técnicas de alongamento e nail art delicada. Experiência com atendimento personalizado.', foto: 'imagens/avatar15.jpg', preco: 160 }
-];
+    const banner = document.getElementById('banner-salao');
+    if (banner) banner.src = salao.banner;
+
+    // Redes sociais
+    const redes = dados.redesSociais;
+    if (redes) {
+      document.getElementById('instagram-salao').textContent = redes.instagram;
+      document.getElementById('facebook-salao').textContent = redes.facebook;
+      document.getElementById('whatsapp-salao').textContent = redes.whatsapp;
+    }
+
+    // Profissionais e horários
+    profissionais = dados.profissionais;
+    horariosDisponiveis = dados.horariosDisponiveis;
+    mostrarProfissionais();
+
+    // Localização (puxando do JSON)
+    const mapaContainer = document.querySelector('.mapa-container iframe');
+    if (mapaContainer && salao.localizacao) {
+      const loc = salao.localizacao;
+      const enderecoCompleto = encodeURIComponent(
+        `${loc.rua}, ${loc.bairro}, ${loc.cidade} - ${loc.estado}, ${loc.cep}`
+      );
+      mapaContainer.src = `https://www.google.com/maps?q=${enderecoCompleto}&hl=pt-BR&z=15&output=embed`;
+    }
+
+  })
+  .catch(erro => console.error('Erro ao carregar dados do salão:', erro));
 
 // Elementos 
 const listaProfissionais = document.getElementById('lista-profissionais');
@@ -31,7 +59,6 @@ const menuServicos = document.querySelector('.menu-servicos');
 const mainContainer = document.querySelector('main');
 
 let horarioSelecionado = null;
-
 
 function mostrarProfissionais(filtro = '') {
   if (!listaProfissionais) return;
@@ -69,17 +96,29 @@ function mostrarProfissionais(filtro = '') {
 
     const horariosDiv = card.querySelector('.horarios-card');
 
-    //  botões de horários com seleção única
+    // Botões de horários com possibilidade de desmarcar
     horariosDisponiveis.forEach(h => {
       const b = document.createElement('button');
       b.type = 'button';
       b.textContent = h;
       b.className = 'horario';
+
       b.addEventListener('click', () => {
+        const estaSelecionado = b.classList.contains('selecionado');
+
+        // Remove seleção de todos os horários
         document.querySelectorAll('.horario').forEach(x => x.classList.remove('selecionado'));
-        b.classList.add('selecionado');
-        horarioSelecionado = { profissional: p.nome, horario: h };
+
+        if (!estaSelecionado) {
+          // Seleciona o botão clicado
+          b.classList.add('selecionado');
+          horarioSelecionado = { profissional: p.nome, horario: h };
+        } else {
+          // Desmarca tudo se já estava selecionado
+          horarioSelecionado = null;
+        }
       });
+
       horariosDiv.appendChild(b);
     });
 
@@ -90,7 +129,7 @@ function mostrarProfissionais(filtro = '') {
 // Inicio lista 
 mostrarProfissionais();
 
-//  Filtros 
+// Filtros 
 if (listaServicos) {
   listaServicos.addEventListener('click', (e) => {
     if (e.target && e.target.tagName === 'LI') {
@@ -108,7 +147,7 @@ if (filtroArea) {
   });
 }
 
-//  Campo Pesquisa 
+// Campo Pesquisa 
 const campoPesquisaEl = document.querySelector('.pesquisa input');
 
 if (campoPesquisaEl) {
@@ -127,8 +166,7 @@ if (campoPesquisaEl) {
   });
 }
 
-
-//  Botão Agendar 
+// Botão Agendar 
 if (btnAgendar) {
   btnAgendar.addEventListener('click', () => {
     if (!horarioSelecionado) {

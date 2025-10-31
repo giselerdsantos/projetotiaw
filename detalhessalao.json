@@ -1,11 +1,29 @@
 {
   "salao": {
     "nome": "Beleza & Estilo",
+    "descricao": "No Beleza & Estilo, oferecemos serviços de qualidade com profissionais especializados em corte, barba, sobrancelha, unhas e maquiagem. Nosso objetivo é que cada cliente saia daqui se sentindo ainda mais incrível!",
     "endereco": "Rua das Rosas, 123 - Bairro Lindeia / Belo Horizonte",
     "telefone": "(31) 3487-7487",
     "horarioFuncionamento": "Segunda a Sábado, 8h às 18h",
-    "banner": "imagens/banner.jpg"
+    
+    "banner": "imagens/banner.jpg",
+    "localizacao": {
+    "rua": "R. das Rosas, 123",
+    "bairro": "Lindeia",
+    "cidade": "Belo Horizonte",
+    "estado": "MG",
+    "cep": "30630-210",
+    "latitude": -19.987679544036798,
+    "longitude": -44.00476888507143
+  }
+    
   },
+  "redesSociais": {
+  "instagram": "@belezaeestilo",
+  "facebook": "@belezaeestilo",
+  "whatsapp": "(31) 3487-7487"
+},
+
   "servicos": [
     "Cabeleireiro",
     "Barbeiro",
@@ -105,6 +123,8 @@
     "Seg 14:00",
     "Ter 10:00",
     "Qua 13:00",
-    "Qui 15:00"
+    "Qui 15:00",
+    "Sex 18:20"
   ]
+  
 }

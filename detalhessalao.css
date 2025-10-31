@@ -1,20 +1,22 @@
+/* Reset e fontes */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Lora', serif;;
+  font-family: 'Lora', serif;
 }
 
 html, body {
   height: 100%;
   margin: 0;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   background-color: #000000;
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
 }
 
+/* TOPO */
 .topo {
   display: flex;
   align-items: center;
@@ -24,13 +26,11 @@ html, body {
   color: white;
 }
 
-
 .topo-direita {
   display: flex;
   align-items: center;
   gap: 25px; 
 }
-
 
 .pesquisa {
   position: relative;
@@ -49,7 +49,6 @@ html, body {
   width: 220px;
 }
 
-
 .pesquisa::before {
   content: "\f002"; 
   font-family: "Font Awesome 6 Free";
@@ -59,7 +58,6 @@ html, body {
   color: #555;
   font-size: 1rem;
 }
-
 
 .icone-usuario {
   font-size: 1.6rem;
@@ -72,14 +70,13 @@ html, body {
   color: #f1d03c;
 }
 
-
-
+/* CONTAINER PRINCIPAL */
 .container {
   display: flex;
-  min-height: calc(100vh - 80px); 
+  flex: 1; /* Faz o container ocupar o espaço disponível */
 }
 
-
+/* SIDEBAR */
 .menu-toggle {
   background: none;
   border: none;
@@ -96,13 +93,6 @@ html, body {
   background-color: rgba(255, 255, 255, 0.15);
   transform: scale(1.1);
 }
-
-
-.menu-servicos.ativo {
-  transform: translateX(0);
-}
-
-
 
 .menu-servicos {
   width: 230px;
@@ -121,32 +111,49 @@ html, body {
   z-index: 1000;
 }
 
-
 .menu-servicos.fechado {
   transform: translateX(-100%);
 }
 
+.menu-servicos h3 {
+  margin: 15px; 
+}
 
+.menu-servicos a {
+  display: block;          
+  color: white;            
+  text-decoration: none;   
+  padding: 10px 15px;      
+  border-radius: 5px;      
+  margin-bottom: 5px;      
+  transition: background-color 0.3s;
+}
+
+.menu-servicos a:hover {
+  background-color: #660a0a;  
+}
+
+/* CONTEÚDO PRINCIPAL */
 .conteudo {
-  flex: 1;
+  flex: 1; /* Faz o conteúdo ocupar o espaço restante */
   padding: 30px;
-  margin-left: 250px; 
+  margin-left: 250px; /* Espaço para sidebar */
   display: flex;
   flex-direction: column;
 }
-
 
 .menu-fechado .conteudo {
   margin-left: 0;
 }
 
-
-.conteudo {
-  flex: 1;
-  padding: 0px;
-  
+h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  text-align: left;
 }
 
+/* CARDS DE PROFISSIONAIS */
 .profissionais {
   display: flex;
   flex-wrap: wrap;
@@ -176,7 +183,6 @@ html, body {
   font-size: 0.95rem;
 }
 
-
 .card-profissional {
   background-color: #661111;
   border-radius: 12px;
@@ -202,7 +208,7 @@ html, body {
 
 .card-profissional p strong {
   color: #ffffff;
-  font-family: 'Cormorant Garamond', serif;;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .card-profissional p {
@@ -210,7 +216,7 @@ html, body {
   color: #ffffff;
   margin-top: 8px;
   line-height: 1.4;
-  font-family:  'Playfair Display', serif;;
+  font-family: 'Playfair Display', serif;
 }
 
 .card-profissional img.foto-profissional {
@@ -234,37 +240,7 @@ html, body {
   font-size: 2.0em;            
 }
 
-
-.menu-servicos h3 {
-  margin: 15px ; 
-}
-
-.menu-servicos a {
-  display: block;          
-  color: white;            
-  text-decoration: none;   
-  padding: 10px 15px;      
-  border-radius: 5px;      
-  margin-bottom: 5px;      
-  transition: background-color 0.3s;
-}
-
-.menu-servicos a:hover {
-  background-color: #660a0a;  
-}
-
-
-.conteudo {
-  flex: 1;
-  padding: 20px;
-}
-
-h2 {
-  margin-top: 30px;
-  margin-bottom: 15px;
-  color: #ffffff;
-  text-align: left;
-}
+/* HORÁRIOS */
 .horarios-card {
   display: flex;
   flex-wrap: wrap;
@@ -296,6 +272,7 @@ h2 {
   background-color: #0c9c18;
   color: #fff;
 }
+
 .agendar-container {
   display: flex;
   justify-content: center;
@@ -318,6 +295,7 @@ h2 {
   background-color: #0c9c18;
 }
 
+/* INFORMAÇÕES DO SALÃO */
 .info-salao {
   display: flex;
   justify-content: space-between;
@@ -342,7 +320,6 @@ h2 {
 
 .redes-sociais p {
   font-size: 1.1rem;
-  
 }
 
 .icones-redes {
@@ -363,17 +340,15 @@ h2 {
   transform: scale(1.1);
 }
 
-
+/* FOOTER */
 footer {
   background-color: #000000;
   color: #fff;
   text-align: center;
-  padding: 20px 10px;
+  padding: 20px;
   border-top: 2px solid #661111;
-  font-size: 0.9rem;
   width: 100%;
 }
-
 
 footer .logo-footer {
   width: 150px;         
@@ -386,7 +361,3 @@ footer .logo-footer:hover {
   transform: scale(1.05);
   opacity: 1;
 }
-
-
-
-
